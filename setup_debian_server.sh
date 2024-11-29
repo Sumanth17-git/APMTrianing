@@ -42,4 +42,25 @@ docker-compose --version && echo "Docker Compose installation completed."
 echo "Adding current user to the Docker group..."
 sudo usermod -aG docker $USER && echo "User added to Docker group. Please log out and log back in for this change to take effect."
 
+
+
+echo "Setup Kubernetes on Compute......"
+sudo apt-get update -y
+echo "deb [signed-by=/usr/share/keyrings/cloud.google.gpg] https://packages.cloud.google.com/apt cloud-sdk main" | sudo tee -a /etc/apt/sources.list.d/google-cloud-sdk.list
+sudo apt-get install apt-transport-https ca-certificates gnupg curl -y
+sudo apt-get install apt-transport-https ca-certificates  -y
+curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo tee /usr/share/keyrings/cloud.google.gpg > /dev/null
+curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo gpg --dearmor -o /usr/share/keyrings/cloud.google.gpg
+echo "deb [signed-by=/usr/share/keyrings/cloud.google.gpg] https://packages.cloud.google.com/apt cloud-sdk main" | sudo tee -a /etc/apt/sources.list.d/google-cloud-sdk.list
+sudo apt-get update && sudo apt-get install google-cloud-cli -y
+apt-get update -y
+apt-get install -y kubectl
+kubectl version --client
+gcloud --version
+gke-gcloud-auth-plugin --version
+apt-get install google-cloud-sdk-gke-gcloud-auth-plugin -y
+kubectl get namespaces
+gcloud container clusters get-credentials cluster-1 --zone us-central1-c --project focus-ensign-434715-g2
+kubectl get nodes
+kubectl get ns
 echo "All commands executed successfully."
