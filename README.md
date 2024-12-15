@@ -7,7 +7,7 @@ Take thread dump from kubernetes
 
 kubectl exec -n default pod-name -- ps aux | grep java
 
-kubectl exec -n  default "$POD_NAME" -- jstack "$PID" > threadump1.txt
+kubectl exec -n default buggycpu-5b748dc98-dlxvt -- jstack 1 > thread_dump.txt
 
 
 ### Connect the GKE from VM
