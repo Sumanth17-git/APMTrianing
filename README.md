@@ -4,6 +4,7 @@ chmod +x setup_debian_server.sh
 
 ###  Take ThreadDumps
 Take thread dump from kubernetes 
+
 kubectl exec -n default pod-name -- ps aux | grep java
 
 kubectl exec -n  default "$POD_NAME" -- jstack "$PID" > threadump1.txt
