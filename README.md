@@ -16,6 +16,9 @@ gcloud auth login --no-launch-browser
 3.Follow the authentication flow and copy the generated authentication code.
 
 ---Set the Project---
+
 gcloud config set project artful-talon-443506-d1
+
 ----Connect the GKE----
+
 gcloud container clusters get-credentials cluster-1 --zone us-central1-c --project artful-talon-443506-d1
