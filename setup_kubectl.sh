@@ -32,4 +32,7 @@ sudo apt-get install -y google-cloud-sdk-gke-gcloud-auth-plugin
 
 # Verify GKE gcloud auth plugin installation
 gke-gcloud-auth-plugin --version
+ansible-galaxy collection install community.kubernetes
+pip3 install kubernetes google-auth
+
 
