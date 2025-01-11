@@ -1,5 +1,5 @@
 #!/bin/bash
-
+export DEBIAN_FRONTEND=noninteractive
 echo "Starting system update..."
 sudo apt update && echo "System update completed."
 
