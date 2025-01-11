@@ -5,7 +5,7 @@ sudo apt update && echo "System update completed."
 
 echo "Installing Git..."
 sudo apt install git -y && echo "Git installation completed."
-
+sudo apt install unzip -y
 echo "Installing Maven..."
 sudo apt install maven -y && echo "Maven installation completed."
 mvn -version
