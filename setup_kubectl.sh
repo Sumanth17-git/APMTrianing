@@ -2,9 +2,9 @@
 
 # Update package list
 sudo apt-get update -y
-
+export DEBIAN_FRONTEND=noninteractive
 # Install dependencies for Google Cloud SDK
-sudo apt-get install -y apt-transport-https ca-certificates gnupg curl
+sudo apt-get install -y apt-transport-https ca-certificates gnupg curl  -y
 
 # Add the Google Cloud SDK distribution URI as a package source
 echo "deb [signed-by=/usr/share/keyrings/cloud.google.gpg] https://packages.cloud.google.com/apt cloud-sdk main" | sudo tee /etc/apt/sources.list.d/google-cloud-sdk.list
