@@ -41,13 +41,14 @@ docker-compose --version && echo "Docker Compose installation completed."
 
 echo "Adding current user to the Docker group..."
 sudo usermod -aG docker $USER && echo "User added to Docker group. Please log out and log back in for this change to take effect."
+sudo apt-get update -y
 
-echo "Setup k6 Load test tool"
-sudo gpg -k
-sudo gpg --no-default-keyring --keyring /usr/share/keyrings/k6-archive-keyring.gpg --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys C5AD17C747E3415A3642D57D77C6C491D6AC1D69
-echo "deb [signed-by=/usr/share/keyrings/k6-archive-keyring.gpg] https://dl.k6.io/deb stable main" | sudo tee /etc/apt/sources.list.d/k6.list
-sudo apt-get update
-sudo apt-get install k6
+#echo "Setup k6 Load test tool"
+#sudo gpg -k
+#sudo gpg --no-default-keyring --keyring /usr/share/keyrings/k6-archive-keyring.gpg --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys C5AD17C747E3415A3642D57D77C6C491D6AC1D69
+#echo "deb [signed-by=/usr/share/keyrings/k6-archive-keyring.gpg] https://dl.k6.io/deb stable main" | sudo tee /etc/apt/sources.list.d/k6.list
+#sudo apt-get update
+#sudo apt-get install k6
 #echo "Setup Kubernetes on Compute......"
 #sudo apt-get update -y
 #echo "deb [signed-by=/usr/share/keyrings/cloud.google.gpg] https://packages.cloud.google.com/apt cloud-sdk main" | sudo tee -a /etc/apt/sources.list.d/google-cloud-sdk.list
