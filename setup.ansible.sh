@@ -94,5 +94,7 @@ sudo bash -c 'cat << EOF > /home/ansible/sample_playbook.yml
 EOF'
 
 ansible-playbook -i /etc/ansible/hosts /home/ansible/sample_playbook.yml
-
+pip install docker
+pip install docker-compose
+ansible-galaxy collection install community.docker
 echo "Ansible setup completed successfully."
