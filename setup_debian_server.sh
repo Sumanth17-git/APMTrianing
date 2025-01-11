@@ -48,13 +48,6 @@ sudo gpg --no-default-keyring --keyring /usr/share/keyrings/k6-archive-keyring.g
 echo "deb [signed-by=/usr/share/keyrings/k6-archive-keyring.gpg] https://dl.k6.io/deb stable main" | sudo tee /etc/apt/sources.list.d/k6.list
 sudo apt-get update
 sudo apt-get install k6
-echo "Setup Terraform"
-TERRAFORM_VERSION="1.6.0"  # Replace with the desired version
-curl -fsSL -o terraform.zip https://releases.hashicorp.com/terraform/${TERRAFORM_VERSION}/terraform_${TERRAFORM_VERSION}_linux_amd64.zip
-unzip terraform.zip
-sudo mv terraform /usr/local/bin/
-terraform version
-mkdir ~/tf-projects
 #echo "Setup Kubernetes on Compute......"
 #sudo apt-get update -y
 #echo "deb [signed-by=/usr/share/keyrings/cloud.google.gpg] https://packages.cloud.google.com/apt cloud-sdk main" | sudo tee -a /etc/apt/sources.list.d/google-cloud-sdk.list
