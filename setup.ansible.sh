@@ -47,7 +47,9 @@ sudo apt install -y ansible-core
 
 # Verify Ansible installation
 ansible --version
-
+pip install docker
+pip install docker-compose
+ansible-galaxy collection install community.docker
 # Create Ansible user and configure permissions
 sudo useradd -m -s /bin/bash ansible
 sudo usermod -aG sudo ansible
@@ -94,7 +96,4 @@ sudo bash -c 'cat << EOF > /home/ansible/sample_playbook.yml
 EOF'
 
 ansible-playbook -i /etc/ansible/hosts /home/ansible/sample_playbook.yml
-pip install docker
-pip install docker-compose
-ansible-galaxy collection install community.docker
 echo "Ansible setup completed successfully."
