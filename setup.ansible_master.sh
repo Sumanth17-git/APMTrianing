@@ -97,3 +97,5 @@ EOF'
 
 ansible-playbook -i /etc/ansible/hosts /home/ansible/sample_playbook.yml
 echo "Ansible setup completed successfully."
+echo "Copy the Public Key"
+sudo -u ansible cat /home/ansible/.ssh/id_rsa.pub
