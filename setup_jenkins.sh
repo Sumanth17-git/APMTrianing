@@ -39,3 +39,6 @@ sudo systemctl status jenkins
 echo "Jenkins installation and setup completed successfully!"
 echo "You can access Jenkins by going to http://<your-server-ip>:8080"
 echo "To get the Jenkins admin password, run: sudo cat /var/lib/jenkins/secrets/initialAdminPassword"
+
+sudo usermod -aG docker jenkins
+sudo systemctl restart jenkins
