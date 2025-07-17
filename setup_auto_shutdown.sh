@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Auto-Shutdown Setup Script for Ubuntu GCP VM
-# Purpose: Shutdown the VM if CPU usage < 10% for 30 minutes
+# Purpose: Shutdown the VM if CPU usage < 10% for 60 minutes
 
 echo "🔧 Updating system and installing required packages..."
 sudo apt update && sudo apt install -y sysstat cron bc
@@ -35,14 +35,14 @@ else
     echo "HIGH" >> "$STATUS_FILE"
 fi
 
-# Keep only last 3 entries (30 minutes = 3 x 10min intervals)
-tail -n 3 "$STATUS_FILE" > "${STATUS_FILE}.tmp" && mv "${STATUS_FILE}.tmp" "$STATUS_FILE"
+# Keep only last 6 entries (60 minutes = =6 x 10min intervals)
+tail -n 6 "$STATUS_FILE" > "${STATUS_FILE}.tmp" && mv "${STATUS_FILE}.tmp" "$STATUS_FILE"
 
-# Shutdown if last 3 entries are all LOW
+# Shutdown if last 6 entries are all LOW
 if grep -qv "LOW" "$STATUS_FILE"; then
     echo "$(date): VM is active. No shutdown." >> "$LOG_FILE"
 else
-    echo "$(date): CPU usage < $THRESHOLD% for 30 minutes. Shutting down." >> "$LOG_FILE"
+    echo "$(date): CPU usage < $THRESHOLD% for 60 minutes. Shutting down." >> "$LOG_FILE"
     sudo shutdown -h now
 fi
 EOF
