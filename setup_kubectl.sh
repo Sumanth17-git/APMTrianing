@@ -4,7 +4,15 @@
 sudo apt-get update -y
 export DEBIAN_FRONTEND=noninteractive
 # Install dependencies for Google Cloud SDK
-sudo apt-get install -y apt-transport-https ca-certificates gnupg curl  -y
+sudo apt-get install -y apt-transport-https ca-certificates gnupg curl tar  -y
+sudo apt-get update -y
+# -------------------------------
+# 🛠️ Install Helm (Latest Version)
+# -------------------------------
+curl https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3 | bash
+
+# 🔍 Verify Helm Installation
+helm version
 
 # Add the Google Cloud SDK distribution URI as a package source
 echo "deb [signed-by=/usr/share/keyrings/cloud.google.gpg] https://packages.cloud.google.com/apt cloud-sdk main" | sudo tee /etc/apt/sources.list.d/google-cloud-sdk.list
