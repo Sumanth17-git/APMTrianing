@@ -32,21 +32,3 @@ eksctl version
 echo "===== Installing Helm ====="
 curl https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3 | bash
 helm version
-
-echo "===== Creating EKS cluster: $CLUSTER_NAME ====="
-eksctl create cluster \
-  --name "$CLUSTER_NAME" \
-  --region "$REGION" \
-  --version 1.33 \
-  --nodegroup-name "$NODEGROUP_NAME" \
-  --node-type "$NODE_TYPE" \
-  --nodes "$NODES" \
-  --managed \
-  --vpc-public-access-cidrs 0.0.0.0/0
-
-echo "===== Verifying cluster access ====="
-aws eks update-kubeconfig --region "$REGION" --name "$CLUSTER_NAME"
-kubectl get nodes
-kubectl auth can-i create clusterrole
-
-echo "===== EKS cluster $CLUSTER_NAME setup complete ====="
