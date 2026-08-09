@@ -1,5 +1,8 @@
 #!/bin/bash
 export DEBIAN_FRONTEND=noninteractive
+echo "Fixing apt cache (if corrupted)..."
+sudo rm -f /var/cache/apt/*.bin
+sudo apt-get clean
 echo "Starting system update..."
 sudo apt update && echo "System update completed."
 echo "Installing Git..."
